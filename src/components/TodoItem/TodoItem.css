@@ -7,7 +7,7 @@
   flex-direction: column;
   width: 300px;
   gap: 8px; /* Component 사이의 간격 조정 */
-  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 20px;
   padding: 11px;
   margin-bottom: 10px;
@@ -30,10 +30,35 @@
 .todoItem-button-delete{
   width: 30px;
   height: 30px;
-  border: 1px solid #ccc;
-  background: none;
+  background: #007bff;
   position: absolute;
   right: 10px;
   top: 10px;
-  border-radius: 9px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  transition: background 0.3s;
+}
+
+.todoItem-button-delete:hover{
+  background: #0056b3;
+}
+
+.todoItem-button-edit{
+  width: 40px;
+  height: 30px;
+  background: #007bff;
+  position: absolute;
+  right: 50px;
+  top: 10px;
+  font-size: 14px;
+  border-radius: 5px;
+  border: none;
+  color: white;
+  transition: background 0.3s;
+}
+
+.todoItem-button-edit:hover{
+  background: #0056b3;
 }

@@ -1,0 +1,54 @@
+.todo-form {
+  width: 500px;
+  margin: 20px auto;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: bold;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+  box-sizing: border-box; /* ✅ 패딩과 테두리를 포함한 크기 계산 */
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.submit-button {
+  width: 100%;
+  background: #007bff;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.submit-button:hover {
+  background: #0056b3;
+}

@@ -13,7 +13,7 @@
 .checkbox-container .circle-checkbox {
   width: 18px; /* 크기 조정 가능 */
   height: 18px;
-  border: 2px solid #e34835; /* 테두리 색 */
+  border: 2px solid #007bff;; /* 테두리 색 */
   border-radius: 50%; /* 동그라미 */
   display: flex;
   justify-content: center;
@@ -23,8 +23,8 @@
 }
 
 .checkbox-container input[type="checkbox"]:checked + .circle-checkbox {
-  background-color: #e34835; /* 체크 상태의 배경색 */
-  border-color: #e34835;
+  background-color: #007bff; /* 체크 상태의 배경색 */
+  border-color: #007bff;
 }
 
 .checkbox-container .checkbox-label {

@@ -4,7 +4,7 @@ import CircleCheckbox from "./CircleCheckbox";
 import Deadline from "./Deadline";
 import Category from "./Category";
 
-const TodoItem = ({todo,onChange,onDelete}) => {
+const TodoItem = ({todo,onChange,onEdit,onDelete}) => {
 
   return (
     <div className='todoItem-wapper'>
@@ -18,6 +18,7 @@ const TodoItem = ({todo,onChange,onDelete}) => {
           <span>{todo.description}</span>
         </div>
         <button onClick={onDelete} className='todoItem-button-delete'>X</button>
+        <button onClick={onEdit} className='todoItem-button-edit'>Edit</button>
       </div>
     </div>
   );
