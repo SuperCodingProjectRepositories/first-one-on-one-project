@@ -3,14 +3,18 @@ import './App.css';
 import Todo from './models/Todo';
 import React, {useState} from "react";
 import TodoForm from "./components/TodoForm";
+import TodoFilter from "./components/TodoFilter";
 
 function App() {
   const [todos, setTodos] = useState([
     new Todo(1, 'Learn React', 'aslkdjflk;asddjfkl;adsdjflk;;jasdkl;ffjsadlkfjasdl;kjfasdja;sfkasfasdfkjasdhfkjlashjfdklahsdasdl;fk components and props askdlfjkasld;jfl;kasd', '2025-02-01', 'Study'),
     new Todo(2, 'Build a Todo App', 'Practice React fundamentals', '2025-02-10', 'Work'),
   ]);
-
+  const [filter, setFilter] = React.useState('all');
   const [editTodo, setEditTodo] = useState(null);
+
+  const [masterChecked, setMasterChecked] = useState(false);
+
 
   const handleCheckboxChange = (id) => {
     setTodos((prevTodos) =>
@@ -44,11 +48,21 @@ function App() {
     setEditTodo(null);
   }
 
+
+  // ✅ 필터링된 리스트 동적 계산
+  const filteredTodos = todos.filter((todo) => {
+    if (filter === "completed") return todo.checked;
+    if (filter === "incomplete") return !todo.checked;
+    if (filter === "past-due") return new Date(todo.deadline) < new Date();
+    return true; // all
+  });
+
   return (
     <div className="app">
       <div className="todos">
         <h1>To-Do List</h1>
-        {todos.map((todo) => (
+        <TodoFilter filter={filter} setFilter={setFilter} />
+        {filteredTodos.map((todo) => (
           <TodoItem key={todo.id}
                     todo={todo}
                     onChange={() => handleCheckboxChange(todo.id)}
