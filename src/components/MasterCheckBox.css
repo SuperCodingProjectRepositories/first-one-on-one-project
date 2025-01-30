@@ -1,0 +1,30 @@
+.checkbox-container input[type="checkbox"] {
+  display: none;
+}
+
+.checkbox-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.checkbox-container .circle-checkbox {
+  width: 18px; /* 크기 조정 가능 */
+  height: 18px;
+  border: 2px solid #007bff;; /* 테두리 색 */
+  border-radius: 50%; /* 동그라미 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 8px;
+  transition: 0.3s;
+}
+
+.checkbox-container input[type="checkbox"]:checked + .circle-checkbox {
+  background-color: #007bff; /* 체크 상태의 배경색 */
+  border-color: #007bff;
+}
+
+.checkbox-container .checkbox-label {
+  font-size: 16px;
+}

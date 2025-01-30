@@ -2,8 +2,6 @@ import React from 'react';
 import './TodoFilter.css';
 
 const TodoFilter = ({filter, setFilter}) => {
-
-
   return (
     <div className="todo-filter">
       <button onClick={() => setFilter('all')}

@@ -4,6 +4,7 @@ import Todo from './models/Todo';
 import React, {useState} from "react";
 import TodoForm from "./components/TodoForm";
 import TodoFilter from "./components/TodoFilter";
+import MasterCheckBox from "./components/MasterCheckBox";
 
 function App() {
   const [todos, setTodos] = useState([
@@ -15,11 +16,17 @@ function App() {
 
   const [masterChecked, setMasterChecked] = useState(false);
 
-
   const handleCheckboxChange = (id) => {
-    setTodos((prevTodos) =>
-      prevTodos.map((todo) => todo.id === id ? {...todo, checked: !todo.checked} : todo)
-    )
+    setTodos((prevTodos) => {
+        const updatedTodos = prevTodos.map((todo) =>
+          todo.id === id ? {...todo, checked: !todo.checked } : todo
+        );
+
+      const allChecked = updatedTodos.every((todo) => todo.checked);
+      setMasterChecked(allChecked);
+
+      return updatedTodos;
+    })
   };
 
   const handleDelete = (id) => {
@@ -37,9 +44,9 @@ function App() {
     }
   }
 
-  const handleSummitAddTodo = (title,description,deadline,category) => {
+  const handleSummitAddTodo = (title, description, deadline, category) => {
     const count = todos.length;
-    const newTodo = new Todo(count + 1, title,description,deadline,category);
+    const newTodo = new Todo(count + 1, title, description, deadline, category);
     setTodos((prevState) => [...prevState, newTodo]);
   }
 
@@ -48,6 +55,14 @@ function App() {
     setEditTodo(null);
   }
 
+  const handleMasterCheckboxChange = () => {
+    setMasterChecked((prev) => !prev);
+    setTodos((tds) => tds.map((todo) => ({
+        ...todo,
+        checked: !masterChecked
+      }))
+    );
+  }
 
   // ✅ 필터링된 리스트 동적 계산
   const filteredTodos = todos.filter((todo) => {
@@ -61,7 +76,8 @@ function App() {
     <div className="app">
       <div className="todos">
         <h1>To-Do List</h1>
-        <TodoFilter filter={filter} setFilter={setFilter} />
+        <TodoFilter filter={filter} setFilter={setFilter}/>
+        <MasterCheckBox checked={masterChecked} onChange={handleMasterCheckboxChange}/>
         {filteredTodos.map((todo) => (
           <TodoItem key={todo.id}
                     todo={todo}
