@@ -1,0 +1,39 @@
+.todoItem-wapper{
+  display: flex;
+}
+
+.todoItem-container{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  gap: 8px; /* Component 사이의 간격 조정 */
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 11px;
+  margin-bottom: 10px;
+  position: relative;
+}
+
+.category-wrapper {
+  display: flex;
+  flex-wrap: wrap; /* 자동으로 줄바꿈 */
+  gap: 5px; /* 카테고리 사이 여백 */
+}
+
+.description-wrapper {
+  word-wrap: break-word;  /* 긴 단어가 자동으로 줄바꿈되도록 */
+  white-space: normal;    /* 기본적으로 여러 줄 허용 */
+  overflow-wrap: break-word;
+  max-width: 100%;        /* 부모 컨테이너 크기 초과 방지 */
+}
+
+.todoItem-button-delete{
+  width: 30px;
+  height: 30px;
+  border: 1px solid #ccc;
+  background: none;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border-radius: 9px;
+}

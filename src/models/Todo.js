@@ -1,4 +1,4 @@
-class ListItem {
+class Todo {
   id = 1
   title = ''
   description = ''
@@ -16,5 +16,4 @@ class ListItem {
   }
 }
 
-
-export default ListItem;
+export default Todo;

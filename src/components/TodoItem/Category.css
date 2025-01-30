@@ -1,0 +1,7 @@
+.category-container {
+  display: inline-block; /* 컨텐츠 크기에 맞게 조정 */
+  border: black solid 1px;
+  border-radius: 15px;
+  padding: 5px 10px;
+  white-space: nowrap; /* 긴 텍스트가 한 줄로 유지되도록 */
+}

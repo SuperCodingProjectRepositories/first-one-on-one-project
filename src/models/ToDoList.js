@@ -1,4 +1,4 @@
-import ListItem from "./ListItem";
+import Todo from "./Todo";
 
 class ToDoList{
   constructor(){
@@ -7,7 +7,7 @@ class ToDoList{
 
   addTodo(title,description,deadline,category){
     const count = this.todos.length;
-    const newTodo = new ListItem(count + 1,title,description,deadline,category);
+    const newTodo = new Todo(count + 1,title,description,deadline,category);
     this.todos = [...this.todos,newTodo];
   }
 
